@@ -7,7 +7,7 @@ module.options = {
 		'max-age': 36000,
 		'allow-headers': null,
 		'expose-headers': null,
-		'allow-credentials': null
+		'allow-credentials': false
 	}
 };
 
@@ -23,9 +23,16 @@ module.exports = options => {
 			// Get all methods for the registrered request url
 			var methods = router.getMethods($.url.pathname, $.app.routes);
 
+
 			$.header("Access-Control-Allow-Methods", methods.join(", "));
 			$.header("Access-Control-Allow-Origin", module.options.values["allow-origin"]);
 			$.header("Access-Control-Max-Age", module.options.values["max-age"]);
+
+			// Set status 204 with empty body
+			if($.method == "OPTIONS"){
+				$.status(204);
+				$.end();
+			}
 		}
 
 		$.return();
