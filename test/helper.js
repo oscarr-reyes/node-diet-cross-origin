@@ -25,7 +25,7 @@ describe("parsing values through helper", () => {
 		expect(helper.parseOptions(options)).to.include.keys("values");
 	});
 
-	describe("parse value for \"allow-headers\" in \"values\" object on either String or Array", () => {
+	describe("value for \"allow-headers\" in \"values\" object on either String or Array", () => {
 		it("should throw error when provided value is not valid", () => {
 			options.defaults["allow-headers"] = true;
 			
@@ -52,7 +52,7 @@ describe("parsing values through helper", () => {
 		});
 	});
 
-	describe("parse value for \"expose-headers\" in \"values\" object on either String or Array", () => {
+	describe("value for \"expose-headers\" in \"values\" object on either String or Array", () => {
 		it("should throw error when provided value is not valid", () => {
 			options.defaults["expose-headers"] = true;
 			
@@ -76,6 +76,21 @@ describe("parsing values through helper", () => {
 				.to.include.keys("expose-headers");
 			
 			assert.isString(helper.parseOptions(options).values["expose-headers"]);
+		});
+	});
+
+	describe("value for \"allow-credentials\" in \"values\" object to be Boolean", () => {
+		it("should throw error when value is not boolean", () => {
+			options.defaults["allow-credentials"] = "true";
+
+			expect(() => {helper.parseOptions(options)})
+				.to.throw(`Default option for "allow-credentials" must be boolean`);
+		});
+
+		it("should be Boolean value", () => {
+			options.defaults["allow-credentials"] = true;
+
+			assert.isBoolean(helper.parseOptions(options).values["allow-credentials"]);
 		});
 	});
 });
