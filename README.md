@@ -1,4 +1,7 @@
 # diet-cross-origin
+[![Build Status](https://travis-ci.org/Nosthertus/node-diet-cross-origin.svg?branch=master)](https://travis-ci.org/Nosthertus/node-diet-cross-origin)
+[![Coverage Status](https://coveralls.io/repos/github/Nosthertus/node-diet-cross-origin/badge.svg?branch=master)](https://coveralls.io/github/Nosthertus/node-diet-cross-origin?branch=master)
+
 A CORS module for diet.js that automatically sends CORS headers to the browser
 
 ##Installation
