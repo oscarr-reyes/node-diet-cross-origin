@@ -13,6 +13,12 @@ var crossOrigin = require("diet-cross-origin");
 
 var app = diet();
 
+var opts = {
+	defaults: {
+    	origin: "www.example.com"
+    }
+};
+
 app.header(crossOrigin(opts));
 
 app.listen(80);
@@ -32,6 +38,37 @@ Origin from where CORS can accept calls in the server
 Time on which prefligh validation CORS will cache in browser, **value is set in deltatime**
 
 * * *
+
+**defaults.allow-headers [Array | String] - Optional (default: null)**
+
+Custom headers to be accepted on request upon preflight validation
+
+* * *
+
+**defaults.expose-headers [Array | String] - Optional (default: null)**
+
+Custom headers that the server will have as whitelist on which the browser is allowed to access
+
+* * *
+
+**defaults.allow-credentials [Boolean] - Optional (default: false)**
+
+Whether or not the response to the request can be exposed
+
+* * *
+
+##Example
+The module will automatically detect which methods are registrered on the request route and add other headers specified on module instance
+```HTTP
+Request
+OPTIONS: www.example.com/users
+
+Response
+HTTP/1.1 204 No Content
+Access-Control-Allow-Origin: http://www.example.com
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+Access-Control-Max-Age: 360000
+```
 
 ##Credits
 
