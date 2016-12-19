@@ -4,7 +4,7 @@
   "description": "A CORS module for diet.js that automatically sends CORS headers to the browser",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,9 @@
   "homepage": "https://github.com/Nosthertus/node-diet-cross-origin#readme",
   "dependencies": {
     "utils-pkg": "^0.12.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
   }
 }
