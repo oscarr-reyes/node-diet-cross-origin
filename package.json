@@ -1,6 +1,6 @@
 {
   "name": "diet-cross-origin",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A CORS module for diet.js that automatically sends CORS headers to the browser",
   "main": "index.js",
   "scripts": {
