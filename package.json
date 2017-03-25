@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/Nosthertus/node-diet-cross-origin#readme",
   "dependencies": {
+    "path-match": "^1.2.4",
     "utils-pkg": "^0.12.1"
   },
   "devDependencies": {
